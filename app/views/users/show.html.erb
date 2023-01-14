@@ -1,0 +1,22 @@
+<h1>Books</h1>
+<% if @user == current_user %>
+  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+<% end %>
+<!-- ユーザーの投稿一覧 -->
+<table border="0">
+  <thead>
+		<tr>
+			<th colspan="1"></th>
+			<th>Title</th>
+			<th>Opinion</th>
+		</tr>
+	</thead>
+  <% @books.each do |book| %>
+  <tbody>
+    <tr>
+      <td><%= image_tag @user.get_profile_image(100,100) %></td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+    </tr>
+  </tbody>
+<% end %>
