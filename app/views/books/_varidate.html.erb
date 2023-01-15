@@ -1,0 +1,8 @@
+<% if varidate.errors.any? %>
+  <%= varidate.errors.count %>errors prohibited this book from being saved:
+  <ul>
+    <% varidate.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
