@@ -1,21 +1,5 @@
-<% if @user == current_user %>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-<% end %>
-
-<h1>User info</h1>
-<%= image_tag @user.get_profile_image(100,100) %>
-<table border="0">
-  <tbody>
-    <tr>
-      <td><p>name</p></td>
-      <td><%= @user.name %></td>
-    </tr>
-    <tr>
-      <td><p>introduction</p></td>
-      <td><%= @user.introduction %></td>
-    </tr>
-  </tbody>
-</table>
+<%= render 'books/userinfo', user: @user %>
+<%= render 'books/new', book: @book %>
 
 <!-- ユーザーの投稿一覧 -->
 <h1>Books</h1>

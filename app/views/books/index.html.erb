@@ -1,5 +1,7 @@
-<h1>Books</h1>
+<%= render 'userinfo', user: current_user %>
+<%= render 'new', book: @book %>
 
+<h1>Books</h1>
 <table border="0">
   <thead>
 	<tr>
@@ -18,9 +20,6 @@
 		    <% end %>
 		  </td>
 		  <td><%= book.body %></td>
-		</tr>
-		<tr>
-		  <td><%= book.user.name %></td>
 		</tr>
 	<% end %>
   </tbody>

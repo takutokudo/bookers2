@@ -1,0 +1,18 @@
+<h1>User info</h1>
+<%= image_tag user.get_profile_image(100,100) %>
+<table border="0">
+  <tbody>
+    <tr>
+      <td><p><strong>name</strong></p></td>
+      <td><strong><%= user.name %></strong></td>
+    </tr>
+    <tr>
+      <td><p><strong>introduction</strong></p></td>
+      <td><strong><%= user.introduction %></strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<% if user.id == current_user.id %>
+<p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
+<% end %>

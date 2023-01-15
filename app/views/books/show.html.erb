@@ -2,8 +2,12 @@
   <%= flash[:notice] %>
 </div>
 
+<%= render 'userinfo', user: @book.user %>
+<%= render 'new', book: @new %>
+
 <h1>Book detail</h1>
 <table border="0">
+  <tbody>
   <tr>
     <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
     <td>
@@ -24,5 +28,11 @@
     </td>
   </tr>
   <tr>
-    <td><%= @book.user.name %></td>
+    <td>
+      <%= link_to user_path(@book.user.id) do %>
+        <%= @book.user.name %>
+      <% end %>
+    </td>
   </tr>
+  </tbody>
+</table>
