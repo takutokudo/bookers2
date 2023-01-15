@@ -8,5 +8,6 @@
   <%= f.file_field :profile_image, placeholder: "Image", accept: "image/*" %><br>
   <label for="inputIntroduction">Introduction</label><br>
   <%= f.text_field :introduction, autofocus: true, id:"inputIntroduction", placeholder:"Introduction"%><br>
-  <%= f.submit "Update User" %>
+  <br>
+  <%= f.submit "Update User", class: "btn btn-secondary" %>
 <% end %>
