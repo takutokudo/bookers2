@@ -1,16 +1,32 @@
-<h1>Books</h1>
 <% if @user == current_user %>
   <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
 <% end %>
+
+<h1>User info</h1>
+<%= image_tag @user.get_profile_image(100,100) %>
+<table border="0">
+  <tbody>
+    <tr>
+      <td><p>name</p></td>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td><p>introduction</p></td>
+      <td><%= @user.introduction %></td>
+    </tr>
+  </tbody>
+</table>
+
 <!-- ユーザーの投稿一覧 -->
+<h1>Books</h1>
 <table border="0">
   <thead>
-		<tr>
-			<th colspan="1"></th>
-			<th>Title</th>
-			<th>Opinion</th>
-		</tr>
-	</thead>
+  	<tr>
+  		<th colspan="1"></th>
+  		<th>Title</th>
+  		<th>Opinion</th>
+  	</tr>
+  </thead>
   <% @books.each do |book| %>
   <tbody>
     <tr>
@@ -19,4 +35,5 @@
       <td><%= book.body %></td>
     </tr>
   </tbody>
-<% end %>
+  <% end %>
+</table>

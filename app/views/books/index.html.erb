@@ -2,26 +2,26 @@
 
 <table border="0">
   <thead>
+	<tr>
+		<th colspan="1"></th>
+		<th>Title</th>
+		<th>Opinion</th>
+	</tr>
+  </thead>
+  <tbody>
+	<% @books.each do |book| %>
 		<tr>
-			<th colspan="1"></th>
-			<th>Title</th>
-			<th>Opinion</th>
+		  <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+	      <td>
+		    <%= link_to book_path(book.id) do %>
+		      <%= book.title %>
+		    <% end %>
+		  </td>
+		  <td><%= book.body %></td>
 		</tr>
-	</thead>
-	<tbody>
-		<% @books.each do |book| %>
-			<tr>
-			  <td><%= image_tag book.user.get_profile_image(100,100) %></td>
-				<td>
-				  <%= link_to book_path(book.id) do %>
-				    <%= book.title %>
-				  <% end %>
-				</td>
-				<td><%= book.body %></td>
-			</tr>
-			<tr>
-			  <td><%= book.user.name %></td>
-			</tr>
-		<% end %>
-	</tbody>
+		<tr>
+		  <td><%= book.user.name %></td>
+		</tr>
+	<% end %>
+  </tbody>
 </table>
