@@ -15,6 +15,7 @@
         		<th colspan="1"></th>
         		<th>Title</th>
         		<th>Opinion</th>
+        		<th colspan="1"></th>
         	</tr>
         </thead>
         <% @books.each do |book| %>
@@ -31,6 +32,20 @@
 					    <% end %>
             </td>
             <td><%= book.body %></td>
+            <td>
+              <% if book.favorite_by?(current_user) %>
+                <%= link_to book_favorites_path(book), method: :delete do %>
+                  <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+                  <%= book.favorites.count %> いいね
+                <% end %>
+              <% else %>
+                <%= link_to book_favorites_path(book), method: :post do %>
+                  <i class="fas fa-heart" aria-hidden="true"></i>
+                  <%= book.favorites.count %> いいね
+                <% end %>
+              <% end %>
+            </td>
+            <td>コメント数: <%= book.book_comments.count %></td>
           </tr>
         </tbody>
         <% end %>
